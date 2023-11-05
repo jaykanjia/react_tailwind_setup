@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --text-color: rgb(246 247 249);
+  --bg-color: rgb(35 39 47);
+  --primary-color: #00d8ff;
+}
+
+* {
+  @apply p-0 m-0 box-border;
+}
+
+body {
+  @apply bg-bgColor text-textColor font-sans;
+}
+
+.wrapper {
+  width: min(90%, 768px);
+  @apply m-auto min-h-screen flex flex-col items-center justify-center gap-8;
+}
+
+.github_link {
+  @apply absolute top-0 right-0 overflow-hidden w-24 aspect-square bg-gray-950;
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
+
+  & > .github_logo {
+    @apply flex items-start justify-center pt-2 w-24 aspect-square rotate-45 transition-all duration-300 cursor-pointer text-textColor;
+
+    &:hover {
+      @apply text-primaryColor;
+    }
+
+    & > .github_icon {
+      @apply w-8 aspect-square;
+    }
+  }
+}
+
+.logo_container {
+  width: min(300px, 80%);
+  animation: animate_logo 10s infinite linear;
+}
+
+.title {
+  @apply text-center;
+}
+
+.desc {
+  @apply text-center;
+}
+
+.chip_container {
+  @apply flex gap-4;
+
+  & > .chip {
+    @apply px-4 py-2;
+  }
+}
+
+@keyframes animate_logo {
+  to {
+    transform: rotate(360deg);
+  }
+}
